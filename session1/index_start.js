@@ -3,7 +3,12 @@
 // ex. reverseString('hello') === 'olleh'
 
 function reverseString(str) {
-  return 'Let\'s Start'
+  var splitted = str.split('');
+  var answer ='';
+  for(var i = 0; i < str.length; i++){
+     answer = splitted[i] + answer;
+ }
+  return answer;
 }
 
 
@@ -12,7 +17,26 @@ function reverseString(str) {
 // Return true if palindrome and false if not
 // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
 
-function isPalindrome(str) {}
+function isPalindrome(str) {
+   //Method 1
+   /*
+   var splitted = str.split('');
+   var str2 = '';
+   for(var i = 0 ; i < str.length ; i++){
+      str2 = splitted[i] + str2;
+   }
+   if(str === str2){ return true;}
+   else{ return false;}
+   */
+
+   //Method 2
+   var answer2 = '';
+   for(var i = 0 ; i < str.length+1 ; i++){
+      answer2 = str.substring(i,i+1) + answer2;
+   }
+   if(str === answer2){ return true;}
+   else{ return false;}
+}
 
 
 
@@ -20,7 +44,16 @@ function isPalindrome(str) {}
 // Return an integer in reverse
 // ex. reverseInt(521) === 125
 
-function reverseInt(int) {}
+function reverseInt(int) {
+   var parsedInt = int.toString();
+   var splitIt = parsedInt.split('');
+   var storeIt = '';
+   for(var i = 0 ; i < parsedInt.length ; i++){
+      storeIt = splitIt[i] + storeIt;
+   }
+   return storeIt;
+
+}
 
 
 
@@ -45,6 +78,9 @@ function fizzBuzz() {}
 
 
 // Call Function
-const output = reverseString('hello');
 
-console.log(output);
+//console.log(reverseString('hello'));
+var pali = 'racecar';
+console.log('Is '+pali+' a palindrome => '+isPalindrome(pali));
+var numberReverse = 123456789;
+console.log(reverseInt(numberReverse));
